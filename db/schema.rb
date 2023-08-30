@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_29_221541) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_132851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_221541) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "kanban_column_id", null: false
+    t.index ["kanban_column_id"], name: "index_tasks_on_kanban_column_id"
   end
 
+  add_foreign_key "tasks", "kanban_columns"
 end
