@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @kanban_column %>
+
+<div>
+  <%= link_to "Edit this kanban column", edit_kanban_column_path(@kanban_column) %> |
+  <%= link_to "Back to kanban columns", kanban_columns_path %>
+
+  <%= button_to "Destroy this kanban column", @kanban_column, method: :delete %>
+</div>
