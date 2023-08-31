@@ -21,6 +21,12 @@
     <%= form.text_field :status %>
   </div>
 
+    <div>
+      <%= form.label :kanban_column_id, style: "display: block" %>
+      <%= form.select :kanban_column_id, [["A Fazer", 1], ["Em Progresso", 2], ["Concluído", 3]], {}, {:class=>"form-control"}%>
+  </div>
+
+
   <div>
     <%= form.submit %>
   </div>

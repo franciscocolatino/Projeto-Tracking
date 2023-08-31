@@ -3,7 +3,20 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.all.joins(:kanban_column).select(:id, :title, :status, :kanban_column_id, :position)
+
+    @taskOne = []
+    @taskTwo = []
+    @taskTree = []
+    @tasks.each do |task|
+      if task.position == 1
+        @taskOne.append(task)
+      elsif task.position == 2
+        @taskTwo.append(task)
+      else
+        @taskTree.append(task)
+      end
+    end
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -65,6 +78,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :status)
+      params.require(:task).permit(:title, :status, :kanban_column_id)
     end
 end

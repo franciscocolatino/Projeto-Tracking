@@ -12,3 +12,54 @@
 </div>
 
 <%= link_to "New task", new_task_path %>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1>Tabela Kanban</h1>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    A Fazer
+                </div>
+                <ul class="list-group list-group-flush">
+                    <% @taskOne.each do |task| %>
+                      <li class="list-group-item">
+                        <%= link_to task.title, task, class: "link-light" %>
+                      </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-warning">
+                    Em Progresso
+                </div>
+                <ul class="list-group list-group-flush">
+                    <% @taskTwo.each do |task| %>
+                      <li class="list-group-item">
+                        <%= link_to task.title, task, class: "link-light" %>
+                      </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    Concluídas
+                </div>
+                <ul class="list-group list-group-flush">
+                    <% @taskTree.each do |task| %>
+                      <li class="list-group-item">
+                        <%= link_to task.title, task, class: "link-light" %>
+                      </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
