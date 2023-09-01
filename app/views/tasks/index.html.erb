@@ -19,47 +19,29 @@
         </div>
     </div>
     <div class="row mt-3">
+        <% @column.each_with_index do |column, index| %>
         <div class="col">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    A Fazer
-                </div>
-                <ul class="list-group list-group-flush" data-controller="sortable" id="1">
-                    <% @taskOne.each do |task| %>
-                      <li class="list-group-item">
-                        <%= link_to task.title, task, {id: task.id, class: "link-light"} %>
-                      </li>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-warning">
-                    Em Progresso
-                </div>
-                <ul class="list-group list-group-flush" data-controller="sortable" id="2">
-                    <% @taskTwo.each do |task| %>
-                      <li class="list-group-item">
-                        <%= link_to task.title, task, {id: task.id, class: "link-light"} %>
-                      </li>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-success text-white">
-                    Concluídas
-                </div>
-                <ul class="list-group list-group-flush" data-controller="sortable" id="3">
-                    <% @taskTree.each do |task| %>
-                      <li class="list-group-item">
-                        <%= link_to task.title, task, {id: task.id, class: "link-light"}  %>
-                      </li>
-                    <% end %>
-                </ul>
-            </div>
+              <div class="card">
+                  <div class="card-header <%= if column.position == 1
+                                                  "bg-primary"
+                                              elsif @column.length-1 == index
+                                                  "bg-success"
+                                              else "bg-warning" 
+                                              end %> text-white">
+                      <%= column.name %>
+                  </div>
+                  <ul class="list-group list-group-flush" data-controller="sortable" id=<%= column.position %>>
+                      <% @tasks.each do |task| %>
+                        <% if task.kanban_column_id == column.id%>
+                          <li class="list-group-item">
+                            <%= link_to task.title, task, {id: task.id, class: "link-light"}  %>
+                          </li>
+                        <% end%>
+                      <% end %>
+                  </ul>
+              </div>
+          </div>
+        <% end %>
         </div>
     </div>
 </div>

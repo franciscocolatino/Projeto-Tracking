@@ -11,16 +11,16 @@ export default class extends Controller {
       return this.myChartTarget.getContext('2d');
   }
   async connect() {
-    const [label, data] = await linechartService.reqLine()
+    const [label, labels, data] = await linechartService.reqLine()
     const ctx = this.canvasContext();
 
     const lineChartConfig = {
         type: 'line',
         data: {
-          labels:  ['a', 'b'],
+          labels:  labels,
           datasets: [{
             label: label,
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: data,
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1

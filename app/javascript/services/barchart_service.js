@@ -16,7 +16,6 @@ const barchartService = {
             }
           }).then((res) => res.json())
       
-          // TORNAR O POSITION = ao kanban_column_id
           const data = []
           response.forEach((value, index) => {
             data.push(responseTwo.reduce((accum, task) => {

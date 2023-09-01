@@ -34,23 +34,26 @@ const linechartService = {
             data[month]++;
         }
         });
-        console.log(data)
-        /*responseTwo.map(value => {
-            if (value.kanban_column_id == concluida.id) {
-                const month = new Date(value.updated_at).getMonth() + 1
-                data.push(month)
-            }
-        })*/
-        console.log(data)
-          /*response.forEach((value, index) => {
-            data.push(responseTwo.reduce((accum, task) => {
-              if (value.position == task.kanban_column_id) {
-                accum += 1
-              }
-              return accum
-            }, 0)) 
-          })*/
-        return [concluida.name, data]
+        // VERIFICAR PARA PEGAR DADOS SOMENTE DO ANO ATUAL
+        const mesesEmPortugues = {
+          1: 'Janeiro',
+          2: 'Fevereiro',
+          3: 'Março',
+          4: 'Abril',
+          5: 'Maio',
+          6: 'Junho',
+          7: 'Julho',
+          8: 'Agosto',
+          9: 'Setembro',
+          10: 'Outubro',
+          11: 'Novembro',
+          12: 'Dezembro',
+        };
+
+        const months = Object.keys(data).map(month => mesesEmPortugues[month])
+        const values = Object.values(data);
+
+        return [concluida.name, months, values]
     },
 }
 
