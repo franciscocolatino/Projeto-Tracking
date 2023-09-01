@@ -11,17 +11,22 @@ export default class extends Controller {
 
     })
   }
-  onStart(event) {
-    console.log(event.oldIndex)
-  }
   onEnd(event) {
-    console.log(event.to)
-    //console.log(event.from)
-    //console.log(event.oldIndex)
-    //console.log(event.newIndex)
-    const destinationList = event.to; // Element representing the destination list
-    const destinationListId = destinationList.getAttribute('id');
-    console.log(destinationListId)
+    const toId = event.to.getAttribute('id')
+    const li = event.to.querySelector('li[draggable="false"] a')
+
+    const taskData = {
+      order: event.newIndex,
+      kanban_column_id: toId
+    };
+    fetch(`/tasks/${li.id}.json`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({ task: taskData })
+    })
 
   }
 }

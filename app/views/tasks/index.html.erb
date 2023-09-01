@@ -24,10 +24,10 @@
                 <div class="card-header bg-primary text-white">
                     A Fazer
                 </div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush" data-controller="sortable" id="1">
                     <% @taskOne.each do |task| %>
                       <li class="list-group-item">
-                        <%= link_to task.title, task, class: "link-light" %>
+                        <%= link_to task.title, task, {id: task.id, class: "link-light"} %>
                       </li>
                     <% end %>
                 </ul>
@@ -38,10 +38,10 @@
                 <div class="card-header bg-warning">
                     Em Progresso
                 </div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush" data-controller="sortable" id="2">
                     <% @taskTwo.each do |task| %>
                       <li class="list-group-item">
-                        <%= link_to task.title, task, class: "link-light" %>
+                        <%= link_to task.title, task, {id: task.id, class: "link-light"} %>
                       </li>
                     <% end %>
                 </ul>
@@ -52,10 +52,10 @@
                 <div class="card-header bg-success text-white">
                     Concluídas
                 </div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush" data-controller="sortable" id="3">
                     <% @taskTree.each do |task| %>
                       <li class="list-group-item">
-                        <%= link_to task.title, task, class: "link-light" %>
+                        <%= link_to task.title, task, {id: task.id, class: "link-light"}  %>
                       </li>
                     <% end %>
                 </ul>

@@ -23,7 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_132851) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
-    t.string "status"
+    t.string "description"
+    t.integer "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "kanban_column_id", null: false
