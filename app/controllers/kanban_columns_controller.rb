@@ -3,7 +3,7 @@ class KanbanColumnsController < ApplicationController
 
   # GET /kanban_columns or /kanban_columns.json
   def index
-    @kanban_columns = KanbanColumn.all
+    @kanban_columns = KanbanColumn.all.order(:position)
   end
 
   # GET /kanban_columns/1 or /kanban_columns/1.json

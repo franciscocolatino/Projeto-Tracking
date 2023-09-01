@@ -1,43 +1,7 @@
-<div class="container mt-5">
-    <div class="row">
-        <div class="col">
-            <h1>Tabela Kanban</h1>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    A Fazer
-                </div>
-                <ul class="list-group list-group-flush" id="A">
-                    <li class="list-group-item">Tarefa 1</li>
-                    <li class="list-group-item">Tarefa 2</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-warning">
-                    Em Progresso
-                </div>
-                <ul class="list-group list-group-flush" id="B">
-                    <li class="list-group-item">Tarefa 1</li>
-                    <li class="list-group-item">Tarefa 2</li>
-                    <li class="list-group-item">Tarefa 3</li>                                        
-                </ul>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-success text-white">
-                    Concluídas
-                </div>
-                <ul class="list-group list-group-flush" id="C">
-                    <li class="list-group-item">Tarefa 4</li>
-                    <li class="list-group-item">Tarefa 5</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<div data-controller="barchart">
+  <canvas id="bar-chart" data-barchart-target="myChart" width="800" height="450"></canvas>
+</div>
+
+<div data-controller="linechart">
+  <canvas id="line-chart" data-linechart-target="myChart" width="800" height="450"></canvas>
 </div>

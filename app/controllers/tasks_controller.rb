@@ -79,7 +79,7 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :order, :kanban_column_id)
+      params.require(:task).permit(:title, :description, :order, :kanban_column_id, :position)
     end
 
 end
