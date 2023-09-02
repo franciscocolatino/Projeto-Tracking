@@ -29,4 +29,5 @@ const barchartService = {
     },
 }
 
+
 export default barchartService;

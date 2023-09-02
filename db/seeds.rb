@@ -6,13 +6,23 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-#KanbanColumn.create(name: "A Fazer", position: 1)
-#KanbanColumn.create(name: "Em Progresso", position: 2)
-#KanbanColumn.create(name: "Concluídas", position: 3)
+KanbanColumn.create(name: "A Fazer", position: 1)
+KanbanColumn.create(name: "Em Progresso", position: 2)
+KanbanColumn.create(name: "Quase lá", position: 3)
+KanbanColumn.create(name: "Concluídas", position: 4)
+ano_atual = Date.current.year
 
-#Task.create(title: 'Limpar a casa', description: 'A Fazer', order: 1, kanban_column_id: 1)
-#Task.create(title: 'Terminar o projeto', description: 'Em Progresso', order: 2, kanban_column_id: 2)
-#Task.create(title: 'Atividade de LAC', description: 'Concluída', order: 3, kanban_column_id: 3)
-#Task.create(title: 'Estudar pra prova', description: 'Em Progresso', order: 4, kanban_column_id: 2)
-#Task.create(title: 'Comecar facul', description: 'ja começou', order: 4, kanban_column_id: 3, updated_at: "2023-02-01T13:56:58.602Z")
-Task.create(title: 'Bugs e resoluções', description: 'dor de cabeça', kanban_column_id: 3, updated_at: "2023-02-01T13:56:58.602Z")
+# Loop para criar 100 tarefas com datas diferentes
+50.times do |i|
+  mes = (i % 12) + 1  # Gere números de 1 a 12 para os meses
+  dia = (i % 28) + 1  # Gere números de 1 a 28 para os dias
+
+  # Crie uma tarefa com data de criação e atualização para o ano atual e o mês/dia gerados
+  Task.create(
+    title: "Tarefa ##{i + 1}",
+    description: "Descrição da Tarefa ##{i + 1}",
+    kanban_column_id: rand(1..4),
+    created_at: "#{ano_atual}-#{mes.to_s.rjust(2, '0')}-#{dia.to_s.rjust(2, '0')} 10:00:00",
+    updated_at: "#{ano_atual}-#{mes.to_s.rjust(2, '0')}-#{dia.to_s.rjust(2, '0')} 14:00:00"
+  )
+end

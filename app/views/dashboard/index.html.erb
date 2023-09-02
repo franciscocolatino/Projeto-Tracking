@@ -1,0 +1,26 @@
+<h1 class="text-center text-white m-5">DASHBOARD</h1>
+
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-center">
+            Tarefas concluídas no decorrer deste ano
+          </div>
+          <div data-controller="linechart">
+            <canvas id="line-chart" data-linechart-target="myChart" width="800" height="450"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-center">
+            Tarefas por status
+          </div>
+          <div data-controller="barchart">
+            <canvas id="bar-chart" data-barchart-target="myChart" width="800" height="450"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

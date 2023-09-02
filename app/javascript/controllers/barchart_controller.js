@@ -13,13 +13,12 @@ export default class extends Controller {
   async connect() {
     const [labels, data] = await barchartService.reqBar()
     const ctx = this.canvasContext();
-
     const barChartConfig = {
         type: 'bar',
         data: {
             labels: labels,
             datasets: [{
-                label: '# of Votes',
+                label: "Quantidade",
                 data: data,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

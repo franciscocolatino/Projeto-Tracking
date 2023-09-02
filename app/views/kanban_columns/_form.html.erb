@@ -13,12 +13,12 @@
 
   <div class="container">
     <div class="form-group">
-      <%= form.label "Nome da coluna", { style: "display: block", class: "text-white" } %>
+      <%= form.label "Nome da coluna", { style: "display: block", class: "text-white", for: "kanban_column_name" } %>
       <%= form.text_field :name, { class: "form-control bg-dark text-white" } %>
     </div>
 
     <div class="form-group">
-      <%= form.label "Posição da coluna", { style: "display: block", class: "text-white" } %>
+      <%= form.label "Posição da coluna", { style: "display: block", class: "text-white", for: "kanban_column_position" } %>
       <%= form.text_field :position, { class: "form-control bg-dark text-white"} %>
       <div class="form-text text-white">
         Se o valor da posição da coluna for maior do que o de todas as outras colunas, então essa coluna será colocada na última posição na ordem das colunas.

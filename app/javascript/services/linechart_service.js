@@ -9,7 +9,6 @@ const linechartService = {
           }).then((res) => res.json())
           
           const concluida = response[response.length-1]
-          console.log(concluida) 
           const responseTwo = await fetch('/tasks.json', {
             method: 'GET',
             headers: {
@@ -18,11 +17,7 @@ const linechartService = {
             }
           }).then((res) => res.json())
           
-          
-          // TORNAR O POSITION = ao kanban_column_id NÃO!!
-        
         const data = {};
-
         responseTwo.forEach((value) => {
           const year = new Date(value.updated_at).getFullYear()
           const anoAtual = new Date().getFullYear()
