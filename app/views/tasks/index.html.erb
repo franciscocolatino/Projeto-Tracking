@@ -30,7 +30,7 @@
                                               end %> text-white">
                       <%= column.name %>
                   </div>
-                  <ul class="list-group list-group-flush" data-controller="sortable" id=<%= column.position %>>
+                  <ul class="list-group list-group-flush" data-controller="sortable" id=<%= column.id %>>
                       <% @tasks.each do |task| %>
                         <% if task.kanban_column_id == column.id%>
                           <li class="list-group-item">

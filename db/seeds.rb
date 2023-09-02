@@ -14,4 +14,5 @@
 #Task.create(title: 'Terminar o projeto', description: 'Em Progresso', order: 2, kanban_column_id: 2)
 #Task.create(title: 'Atividade de LAC', description: 'Concluída', order: 3, kanban_column_id: 3)
 #Task.create(title: 'Estudar pra prova', description: 'Em Progresso', order: 4, kanban_column_id: 2)
-Task.create(title: 'Comecar facul', description: 'ja começou', order: 4, kanban_column_id: 3, updated_at: "2023-02-01T13:56:58.602Z")
+#Task.create(title: 'Comecar facul', description: 'ja começou', order: 4, kanban_column_id: 3, updated_at: "2023-02-01T13:56:58.602Z")
+Task.create(title: 'Bugs e resoluções', description: 'dor de cabeça', kanban_column_id: 3, updated_at: "2023-02-01T13:56:58.602Z")

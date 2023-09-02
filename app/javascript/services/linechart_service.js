@@ -24,9 +24,10 @@ const linechartService = {
         const data = {};
 
         responseTwo.forEach((value) => {
-        if (value.kanban_column_id === concluida.id) {
-            const month = new Date(value.updated_at).getMonth() + 1; // +1 para ajustar o mês (0 a 11 para 1 a 12)
-
+          const year = new Date(value.updated_at).getFullYear()
+          const anoAtual = new Date().getFullYear()
+          if (value.kanban_column_id === concluida.id && year == anoAtual) {
+            const month = new Date(value.updated_at).getMonth() + 1;
             if (!data[month]) {
             data[month] = 0;
             }

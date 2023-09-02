@@ -11,27 +11,20 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= form.label "Título da tarefa", style: "display: block" %>
+    <%= form.text_field :title, {class: "form-control"} %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+  <div class="form-group">
+    <%= form.label "Descrição", style: "display: block" %>
+    <%= form.text_field :description, {class: "form-control"} %>
   </div>
+    <%= form.hidden_field :kanban_column_id, value: KanbanColumn.order(:position).first().id %>
+  
+    <%= form.hidden_field :order, value: task.order %>
 
-  <div>
-    <%= form.label :kanban_column_id, style: "display: block" %>
-    <%= form.select :kanban_column_id, [["A Fazer", 1], ["Em Progresso", 2], ["Concluído", 3]], {}, {:class=>"form-control"}%>
-  </div>
-
-  <div>
-    <%= form.label :order, style: "display: block" %>
-    <%= form.text_field :order %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Atualizar tarefa", { class: "btn btn-primary"} %>
   </div>
 <% end %>
