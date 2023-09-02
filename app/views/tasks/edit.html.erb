@@ -1,10 +1,10 @@
-<h1>Editando tarefa</h1>
+<h1 class="text-white text-center mt-3">Editando tarefa</h1>
 
 <%= render "form", task: @task %>
 
 <br>
 
 <div>
-  <%= link_to "Show this task", @task %> |
-  <%= link_to "Back to tasks", tasks_path %>
+  <%= link_to "Mostrar essa tarefa", @task, class: "btn btn-primary text-white fs-8" %> |
+  <%= link_to "Voltar para tarefas", tasks_path, class: "btn btn-primary text-white fs-8" %>
 </div>

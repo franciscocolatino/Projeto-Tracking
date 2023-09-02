@@ -1,47 +1,33 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Tasks</h1>
-
-<div id="tasks">
-  <% @tasks.each do |task| %>
-    <%= render task %>
-    <p>
-      <%= link_to "Show this task", task %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New task", new_task_path %>
 <div class="container mt-5">
-    <div class="row">
-        <div class="col">
-            <h1>Tabela Kanban</h1>
-        </div>
+  <div class="row">
+    <div class="col">
+      <h1 class="text-white text-center">Lista de tarefas</h1>
     </div>
-    <div class="row mt-3">
-        <% @column.each_with_index do |column, index| %>
-        <div class="col">
-              <div class="card">
-                  <div class="card-header <%= if column.position == 1
-                                                  "bg-primary"
-                                              elsif @column.length-1 == index
-                                                  "bg-success"
-                                              else "bg-warning" 
-                                              end %> text-white">
-                      <%= column.name %>
-                  </div>
-                  <ul class="list-group list-group-flush" data-controller="sortable" id=<%= column.id %>>
-                      <% @tasks.each do |task| %>
-                        <% if task.kanban_column_id == column.id%>
-                          <li class="list-group-item">
-                            <%= link_to task.title, task, {id: task.id, class: "link-light"}  %>
-                          </li>
-                        <% end%>
-                      <% end %>
-                  </ul>
-              </div>
+  </div>
+  <div class="row mt-3">
+    <% @column.each_with_index do |column, index| %>
+      <div class="col">
+        <div class="card bg-dark">
+          <div class="card-header <%= if column.position == 1
+                                      "bg-primary text-dark"
+                                    elsif @column.length-1 == index
+                                      "bg-success text-dark"
+                                    else "bg-warning text-dark"
+                                    end %>">
+            <%= column.name %>
           </div>
-        <% end %>
+          <ul class="list-group list-group-flush" data-controller="sortable" id=<%= column.id %>>
+            <% @tasks.each do |task| %>
+              <% if task.kanban_column_id == column.id %>
+                <li class="list-group-item bg-dark">
+                  <%= link_to task.title, task, { id: task.id, class: "text-white" } %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
         </div>
-    </div>
+      </div>
+    <% end %>
+  </div>
 </div>

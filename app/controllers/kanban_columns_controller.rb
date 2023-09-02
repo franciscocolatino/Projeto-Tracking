@@ -25,7 +25,7 @@ class KanbanColumnsController < ApplicationController
 
     respond_to do |format|
       if @kanban_column.save
-        format.html { redirect_to kanban_column_url(@kanban_column), notice: "Kanban column was successfully created." }
+        format.html { redirect_to kanban_column_url(@kanban_column), notice: "Coluna criada com sucesso" }
         format.json { render :show, status: :created, location: @kanban_column }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class KanbanColumnsController < ApplicationController
   def update
     respond_to do |format|
       if @kanban_column.update(kanban_column_params)
-        format.html { redirect_to kanban_column_url(@kanban_column), notice: "Kanban column was successfully updated." }
+        format.html { redirect_to kanban_column_url(@kanban_column), notice: "Coluna atualizada com sucesso" }
         format.json { render :show, status: :ok, location: @kanban_column }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class KanbanColumnsController < ApplicationController
     @kanban_column.destroy
 
     respond_to do |format|
-      format.html { redirect_to kanban_columns_url, notice: "Kanban column was successfully destroyed." }
+      format.html { redirect_to kanban_columns_url, notice: "Coluna excluída com sucesso" }
       format.json { head :no_content }
     end
   end

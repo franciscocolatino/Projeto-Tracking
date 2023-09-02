@@ -1,12 +1,21 @@
 <div id="<%= dom_id kanban_column %>">
-  <p>
-    <strong>Name:</strong>
+  <p class="text-white fs-4">
+    <strong>Nome:</strong>
     <%= kanban_column.name %>
   </p>
 
-  <p>
-    <strong>Position:</strong>
+  <p class="text-white fs-4">
+    <strong>Posição:</strong>
     <%= kanban_column.position %>
   </p>
-
+  </p>
+    <p class="text-white">
+    <strong>Data de criação: </strong>
+    <%= kanban_column.created_at.in_time_zone("Brasilia").strftime("%Y-%m-%d %H:%M:%S") %>
+  </p>
+ </p>
+    <p class="text-white">
+    <strong>Ultima edição/atualização: </strong>
+    <%= kanban_column.updated_at.in_time_zone("Brasilia").strftime("%Y-%m-%d %H:%M:%S") %>
+  </p>
 </div>

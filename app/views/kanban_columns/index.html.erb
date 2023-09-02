@@ -1,14 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Kanban columns</h1>
+<div class="container text-center mt-5">
+  <h1 class="text-white">Colunas</h1>
 
-<div id="kanban_columns">
-  <% @kanban_columns.each do |kanban_column| %>
-    <%= render kanban_column %>
-    <p>
-      <%= link_to "Show this kanban column", kanban_column %>
-    </p>
-  <% end %>
+  <div id="kanban_columns" class="row">
+    <% @kanban_columns.each do |kanban_column| %>
+      <div class="col-md-6">
+        <div class="card bg-dark text-white mb-3">
+          <div class="card-body">
+            <%= render kanban_column %>
+            <p>
+              <%= link_to "Mostrar essa coluna", kanban_column, class: "btn btn-primary" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Criar nova coluna", new_kanban_column_path, class: "btn btn-success" %>
 </div>
 
-<%= link_to "New kanban column", new_kanban_column_path %>
+

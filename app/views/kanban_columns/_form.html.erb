@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="container">
+    <div class="form-group">
+      <%= form.label "Nome da coluna", { style: "display: block", class: "text-white" } %>
+      <%= form.text_field :name, { class: "form-control bg-dark text-white" } %>
+    </div>
 
-  <div>
-    <%= form.label :position, style: "display: block" %>
-    <%= form.number_field :position %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <div class="form-group">
+      <%= form.label "Posição da coluna", { style: "display: block", class: "text-white" } %>
+      <%= form.text_field :position, { class: "form-control bg-dark text-white"} %>
+      <div class="form-text text-white">
+        Se o valor da posição da coluna for maior do que o de todas as outras colunas, então essa coluna será colocada na última posição na ordem das colunas.
+      </div>
+    </div>
+    <div class="form-group mt-2">
+      <%= form.submit class: "btn btn-warning" %>
+    </div>
   </div>
 <% end %>

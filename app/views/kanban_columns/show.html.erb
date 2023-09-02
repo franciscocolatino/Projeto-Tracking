@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @kanban_column %>
+<div class="container">
+  <%= render @kanban_column %>
+  <div>
+    <%= link_to "Editar essa coluna", edit_kanban_column_path(@kanban_column), class: "btn btn-primary text-white fs-8"%>
+    <%= link_to "Voltar para colunas", kanban_columns_path, class: "btn btn-primary text-white fs-8" %>
 
-<div>
-  <%= link_to "Edit this kanban column", edit_kanban_column_path(@kanban_column) %> |
-  <%= link_to "Back to kanban columns", kanban_columns_path %>
-
-  <%= button_to "Destroy this kanban column", @kanban_column, method: :delete %>
+    <%= button_to "Apagar essa coluna", @kanban_column, method: :delete, class: "btn btn-danger text-white fs-8 mt-2"%>
+    <div class="form-text text-white fs-6">
+    Para exclusão bem-sucedida desta coluna, é necessário que todas as tarefas associadas a ela tenham sido previamente removidas.
+    </div>
+  </div>
 </div>

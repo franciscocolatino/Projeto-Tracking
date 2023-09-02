@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @task %>
+<div class="container">
+  <%= render @task %>
+  <div>
+    <%= link_to "Editar essa tarefa", edit_task_path(@task), class: "btn btn-primary text-white fs-8" %>
+    <%= link_to "Voltar para tarefas", tasks_path, class: "btn btn-primary text-white fs-8" %>
 
-<div>
-  <%= link_to "Edit this task", edit_task_path(@task) %> |
-  <%= link_to "Back to tasks", tasks_path %>
-
-  <%= button_to "Destroy this task", @task, method: :delete %>
+    <%= button_to "Apagar essa tarefa", @task, method: :delete, class: "btn btn-danger text-white fs-8 mt-2" %>
+  </div>
 </div>

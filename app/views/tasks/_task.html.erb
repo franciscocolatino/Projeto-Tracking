@@ -1,12 +1,21 @@
 <div id="<%= dom_id task %>">
-  <p>
+  <p class="text-white">
     <strong>Title:</strong>
     <%= task.title %>
   </p>
 
-  <p>
+  <p class="text-white">
     <strong>Descrição:</strong>
     <%= task.description %>
+  </p>
+    <p class="text-white">
+    <strong>Data de criação: </strong>
+    <%= task.created_at.in_time_zone("Brasilia").strftime("%Y-%m-%d %H:%M:%S")%>
+  </p>
+ </p>
+    <p class="text-white">
+    <strong>Ultima edição/atualização: </strong>
+    <%= task.updated_at.in_time_zone("Brasilia").strftime("%Y-%m-%d %H:%M:%S") %>
   </p>
 
 </div>
