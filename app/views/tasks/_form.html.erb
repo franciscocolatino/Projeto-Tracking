@@ -1,7 +1,7 @@
 <%= form_with(model: task) do |form| %>
   <% if task.errors.any? %>
     <div class="container alert bg-danger">
-      <div style="color: black">
+      <div style="color: white">
         <h4>Verifique os campos abaixo:</h4>
         <ul>
           <% task.errors.each do |error| %>

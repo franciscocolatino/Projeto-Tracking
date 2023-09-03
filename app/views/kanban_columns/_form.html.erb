@@ -1,7 +1,7 @@
 <%= form_with(model: kanban_column) do |form| %>
     <% if kanban_column.errors.any? %>
     <div class="container alert bg-danger">
-      <div style="color: black">
+      <div style="color: white">
         <h4>Verifique os campos abaixo:</h4> 
         <ul>
           <% kanban_column.errors.each do |error| %>

@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="container">
+  <% if flash[:error].present? %>
+    <div class="alert alert-error bg-danger text-white">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
   <%= render @kanban_column %>
   <div>
     <%= link_to "Editar essa coluna", edit_kanban_column_path(@kanban_column), class: "btn btn-primary text-white fs-8"%>

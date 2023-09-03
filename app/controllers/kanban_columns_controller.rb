@@ -59,7 +59,8 @@ class KanbanColumnsController < ApplicationController
     rescue ActiveRecord::InvalidForeignKey => e
       # Captura a exceção de chave estrangeira inválida (InvalidForeignKey)
       respond_to do |format|
-        format.html { redirect_to kanban_columns_url, notice: "Não é possível excluir a coluna devido a uma chave estrangeira existente." }
+        format.html { redirect_to kanban_column_url(@kanban_column) }
+        flash[:error] = "Não é possível remover a coluna enquanto houver tarefas associadas a ela."
         format.json { render json: { error: "Não é possível excluir a coluna devido a uma chave estrangeira existente." }, status: :unprocessable_entity }
       end
     end
