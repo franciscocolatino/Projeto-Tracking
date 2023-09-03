@@ -49,11 +49,19 @@ class KanbanColumnsController < ApplicationController
 
   # DELETE /kanban_columns/1 or /kanban_columns/1.json
   def destroy
-    @kanban_column.destroy
+    begin
+      @kanban_column.destroy
 
-    respond_to do |format|
-      format.html { redirect_to kanban_columns_url, notice: "Coluna excluída com sucesso" }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to kanban_columns_url, notice: "Coluna excluída com sucesso" }
+        format.json { head :no_content }
+      end
+    rescue ActiveRecord::InvalidForeignKey => e
+      # Captura a exceção de chave estrangeira inválida (InvalidForeignKey)
+      respond_to do |format|
+        format.html { redirect_to kanban_columns_url, notice: "Não é possível excluir a coluna devido a uma chave estrangeira existente." }
+        format.json { render json: { error: "Não é possível excluir a coluna devido a uma chave estrangeira existente." }, status: :unprocessable_entity }
+      end
     end
   end
 

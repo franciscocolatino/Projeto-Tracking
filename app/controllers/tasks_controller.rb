@@ -31,8 +31,8 @@ class TasksController < ApplicationController
         format.html { redirect_to task_url(@task), notice: "Tarefa criada com sucesso." }
         format.json { render :show, description: :created, location: @task }
       else
-        format.html { render :new, description: :unprocessable_entity }
-        format.json { render json: @task.errors, description: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end

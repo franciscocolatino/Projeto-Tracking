@@ -15,13 +15,13 @@
                                       "bg-success text-dark"
                                     else "bg-warning text-dark"
                                     end %>">
-            <%= column.name %>
+          <%= link_to column.name, column, { id: column.id, class: "text-white" } %>
           </div>
           <ul class="list-group list-group-flush" data-controller="sortable" id=<%= column.id %>>
             <% @tasks.each do |task| %>
               <% if task.kanban_column_id == column.id %>
                 <li class="list-group-item bg-dark">
-                  <%= link_to task.title, task, { id: task.id, class: "text-white" } %>
+                  <%= link_to task.title, task, { id: task.id, class: "text-white link-underline link-underline-opacity-0" } %>
                 </li>
               <% end %>
             <% end %>
