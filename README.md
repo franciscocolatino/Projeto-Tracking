@@ -43,5 +43,6 @@
   ```
 ## Observações
   - Gostaria de destacar que o seeder já implementou algumas tarefas e criou três colunas no banco de dados. Essa abordagem foi adotada com o intuito de ajudar na visualização dos gráficos gerados a partir dos dados inseridos no banco.
-  - Funcionalidade de arrastar e soltar funcionando.
-  - O gráfico de tarefas concluídas pega a coluna com maior posição.
+  - A funcionalidade de arrastar e soltar está funcionando; além disso, é possível alterar a ordem das tarefas através do arrastar e soltar também.
+  - O gráfico de tarefas concluídas pega os dados da coluna com maior posição.
+  - Na raiz do projeto tem um arquivo chamado UML.png contendo o diagrama de classes.
