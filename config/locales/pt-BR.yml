@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    attributes:
+      kanban_column:
+        name: "Nome"
+        position: "Posição"
+      task:
+        title: "Título"
+        description: "Descrição"
+    errors:
+      messages:
+        blank: 'não pode ser em branco'
+        taken: 'já existe'
